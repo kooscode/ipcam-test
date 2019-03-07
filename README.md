@@ -17,4 +17,4 @@ Usage:
 
 TODO: 
 -----
-- Add camera URL as cmdline parameter..
+- Add username, password and camera URL as cmdline parameters..
