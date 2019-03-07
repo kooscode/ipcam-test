@@ -10,6 +10,7 @@ namespace tc = terraclear;
 
 int main(int argc, char** argv) 
 {
+    //init OpenCV window
     char window_name[] = "cctv";
     cv::namedWindow(window_name, cv::WINDOW_NORMAL | cv::WINDOW_KEEPRATIO);// | cv::WINDOW_AUTOSIZE);
     
@@ -26,11 +27,17 @@ int main(int argc, char** argv)
     bool is_recording = false;
     int wait_detalay = 33;
     int frame_flash = 0;
-    
+
+    //display loop..
     for (;;)
     {
+        //Get frame from Camera
         cv::Mat img_frame = async_cam.get_ImageBuffer();
+        
+        //Check if frame valid
         bool has_frame = ((img_frame.rows > 0) && (img_frame.cols > 0))?true:false;
+        
+        //If valid frame, record and display it..
         if (has_frame)  
         {
             //if recording, capture frames and flash "recording" on screen.
@@ -60,16 +67,19 @@ int main(int argc, char** argv)
         
         //wait 33ms for key event.
         int x = cv::waitKey(wait_detalay);
+        
+        //check which key was pressed..
         if (x == 32) //space bar
         {
-            //enable recording
             if (has_frame && !is_recording) 
             {
+                //enable recording with default video file name
                 camcorder.start_recorder("ip-camera.mp4", 1000/wait_detalay, cv::Size(img_frame.cols, img_frame.rows));
                 is_recording = true;
             }
             else
             { 
+                //stop recorder..
                 camcorder.stop_recorder();
                 is_recording = false;
             }
