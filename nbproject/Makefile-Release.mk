@@ -39,6 +39,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/e1dda48/camera_base.o \
 	${OBJECTDIR}/_ext/e1dda48/camera_file.o \
 	${OBJECTDIR}/_ext/e1dda48/camera_recorder.o \
+	${OBJECTDIR}/_ext/e1dda48/camera_usb.o \
+	${OBJECTDIR}/_ext/e1dda48/detector_base.o \
+	${OBJECTDIR}/_ext/e1dda48/detector_motion.o \
 	${OBJECTDIR}/_ext/e1dda48/filetools.o \
 	${OBJECTDIR}/_ext/e1dda48/stopwatch.o \
 	${OBJECTDIR}/_ext/e1dda48/thread_base.o \
@@ -88,6 +91,21 @@ ${OBJECTDIR}/_ext/e1dda48/camera_recorder.o: ../libterraclear/src/camera_recorde
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_recorder.o ../libterraclear/src/camera_recorder.cpp
+
+${OBJECTDIR}/_ext/e1dda48/camera_usb.o: ../libterraclear/src/camera_usb.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_usb.o ../libterraclear/src/camera_usb.cpp
+
+${OBJECTDIR}/_ext/e1dda48/detector_base.o: ../libterraclear/src/detector_base.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/detector_base.o ../libterraclear/src/detector_base.cpp
+
+${OBJECTDIR}/_ext/e1dda48/detector_motion.o: ../libterraclear/src/detector_motion.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/detector_motion.o ../libterraclear/src/detector_motion.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/filetools.o: ../libterraclear/src/filetools.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48

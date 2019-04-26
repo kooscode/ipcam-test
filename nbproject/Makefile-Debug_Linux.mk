@@ -39,6 +39,9 @@ OBJECTFILES= \
 	${OBJECTDIR}/_ext/e1dda48/camera_base.o \
 	${OBJECTDIR}/_ext/e1dda48/camera_file.o \
 	${OBJECTDIR}/_ext/e1dda48/camera_recorder.o \
+	${OBJECTDIR}/_ext/e1dda48/camera_usb.o \
+	${OBJECTDIR}/_ext/e1dda48/detector_base.o \
+	${OBJECTDIR}/_ext/e1dda48/detector_motion.o \
 	${OBJECTDIR}/_ext/e1dda48/filetools.o \
 	${OBJECTDIR}/_ext/e1dda48/stopwatch.o \
 	${OBJECTDIR}/_ext/e1dda48/thread_base.o \
@@ -59,7 +62,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=`pkg-config --libs opencv`  
+LDLIBSOPTIONS=`pkg-config --libs opencv` `pkg-config --libs jsoncpp`  
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -72,42 +75,57 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ipcam-test: ${OBJECTFILES}
 ${OBJECTDIR}/_ext/e1dda48/camera_async.o: ../libterraclear/src/camera_async.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_async.o ../libterraclear/src/camera_async.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_async.o ../libterraclear/src/camera_async.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/camera_base.o: ../libterraclear/src/camera_base.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_base.o ../libterraclear/src/camera_base.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_base.o ../libterraclear/src/camera_base.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/camera_file.o: ../libterraclear/src/camera_file.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_file.o ../libterraclear/src/camera_file.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_file.o ../libterraclear/src/camera_file.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/camera_recorder.o: ../libterraclear/src/camera_recorder.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_recorder.o ../libterraclear/src/camera_recorder.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_recorder.o ../libterraclear/src/camera_recorder.cpp
+
+${OBJECTDIR}/_ext/e1dda48/camera_usb.o: ../libterraclear/src/camera_usb.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/camera_usb.o ../libterraclear/src/camera_usb.cpp
+
+${OBJECTDIR}/_ext/e1dda48/detector_base.o: ../libterraclear/src/detector_base.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/detector_base.o ../libterraclear/src/detector_base.cpp
+
+${OBJECTDIR}/_ext/e1dda48/detector_motion.o: ../libterraclear/src/detector_motion.cpp
+	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/detector_motion.o ../libterraclear/src/detector_motion.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/filetools.o: ../libterraclear/src/filetools.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/filetools.o ../libterraclear/src/filetools.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/filetools.o ../libterraclear/src/filetools.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/stopwatch.o: ../libterraclear/src/stopwatch.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/stopwatch.o ../libterraclear/src/stopwatch.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/stopwatch.o ../libterraclear/src/stopwatch.cpp
 
 ${OBJECTDIR}/_ext/e1dda48/thread_base.o: ../libterraclear/src/thread_base.cpp
 	${MKDIR} -p ${OBJECTDIR}/_ext/e1dda48
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/thread_base.o ../libterraclear/src/thread_base.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/e1dda48/thread_base.o ../libterraclear/src/thread_base.cpp
 
 ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I.. `pkg-config --cflags opencv` `pkg-config --cflags jsoncpp`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

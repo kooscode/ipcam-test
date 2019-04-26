@@ -10,6 +10,12 @@
       <itemPath>../libterraclear/src/camera_file.hpp</itemPath>
       <itemPath>../libterraclear/src/camera_recorder.cpp</itemPath>
       <itemPath>../libterraclear/src/camera_recorder.hpp</itemPath>
+      <itemPath>../libterraclear/src/camera_usb.cpp</itemPath>
+      <itemPath>../libterraclear/src/camera_usb.hpp</itemPath>
+      <itemPath>../libterraclear/src/detector_base.cpp</itemPath>
+      <itemPath>../libterraclear/src/detector_base.hpp</itemPath>
+      <itemPath>../libterraclear/src/detector_motion.cpp</itemPath>
+      <itemPath>../libterraclear/src/detector_motion.hpp</itemPath>
       <itemPath>../libterraclear/src/filetools.cpp</itemPath>
       <itemPath>../libterraclear/src/filetools.hpp</itemPath>
       <itemPath>../libterraclear/src/stopwatch.cpp</itemPath>
@@ -57,6 +63,7 @@
         <linkerTool>
           <linkerLibItems>
             <linkerOptionItem>`pkg-config --libs opencv`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs jsoncpp`</linkerOptionItem>
           </linkerLibItems>
           <commandLine>-lpthread</commandLine>
         </linkerTool>
@@ -97,6 +104,36 @@
             flavor2="0">
       </item>
       <item path="../libterraclear/src/camera_recorder.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/camera_usb.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/camera_usb.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_base.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_base.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_motion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_motion.hpp"
             ex="false"
             tool="3"
             flavor2="0">
@@ -182,6 +219,36 @@
             tool="3"
             flavor2="0">
       </item>
+      <item path="../libterraclear/src/camera_usb.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/camera_usb.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_base.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_base.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_motion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_motion.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="../libterraclear/src/filetools.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="../libterraclear/src/filetools.hpp" ex="false" tool="3" flavor2="0">
@@ -222,6 +289,8 @@
             <linkerLibLibItem>opencv_highgui</linkerLibLibItem>
             <linkerLibLibItem>opencv_video</linkerLibLibItem>
             <linkerLibLibItem>opencv_videoio</linkerLibLibItem>
+            <linkerLibLibItem>opencv_imgcodecs</linkerLibLibItem>
+            <linkerLibLibItem>opencv_imgproc</linkerLibLibItem>
           </linkerLibItems>
           <commandLine>-lpthread</commandLine>
         </linkerTool>
@@ -262,6 +331,36 @@
             flavor2="8">
       </item>
       <item path="../libterraclear/src/camera_recorder.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/camera_usb.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/camera_usb.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_base.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_base.hpp"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_motion.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="../libterraclear/src/detector_motion.hpp"
             ex="false"
             tool="3"
             flavor2="0">
