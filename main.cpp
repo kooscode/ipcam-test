@@ -70,7 +70,9 @@ int main(int argc, char** argv)
     int wait_detalay = 33;
     int frame_flash = 0;
 
-    cv::Scalar color_red = cv::Scalar(0,0,0xff);
+    cv::Scalar color_red = cv::Scalar(0x00, 0x00, 0xff);
+    cv::Scalar color_green = cv::Scalar(0x00, 0xff, 0x00);
+    cv::Scalar color_yellow = cv::Scalar(0x00, 0xff, 0xff);
 
     std::cout << "Loading camera";
     cv::Mat img_frame;
@@ -91,7 +93,8 @@ int main(int argc, char** argv)
     tc::stopwatch motion_sw;
     uint32_t motion_timeout = 10;
     bool is_motion = false;
-    
+    bool motion_enabled = false;
+
     //display loop..
     for (;;)
     {
@@ -105,8 +108,7 @@ int main(int argc, char** argv)
         if (has_frame)  
         {
             //check for motion..
-            std::vector<tc::bounding_box> motion_objects  = motion.detect_objects();
-            if (motion_objects.size() > 0)
+            if ((motion_enabled) && (motion.detect_objects().size() > 0))
             {
                 //enable and reset motion recording timer
                 is_motion = true;
@@ -154,6 +156,10 @@ int main(int argc, char** argv)
 
             cv::putText(img_frame, sstr.str(), cv::Point(5, img_frame.rows - 10), CV_FONT_HERSHEY_COMPLEX, 1.125, color_red, 2);
 
+            if (motion_enabled)
+                cv::putText(img_frame, "M", cv::Point(img_frame.cols - 50, 50), CV_FONT_HERSHEY_COMPLEX, 1.25, color_green, 2);
+                
+                
             //if recording, capture frames and flash "recording" on screen.
             if (is_recording)
             {
@@ -194,6 +200,16 @@ int main(int argc, char** argv)
         if (x == 27) //escape
         {
             break;
+        }
+        else if (x == 100) //d for debug mode
+        {
+            //toggle debug mode.
+            motion._debug_mode = !motion._debug_mode;
+        }
+        else if (x == 109) //m for motion activated
+        {
+            //toggle motion activation mode.
+            motion_enabled = !motion_enabled;
         }
         else if (x == 32) //space bar
         {
